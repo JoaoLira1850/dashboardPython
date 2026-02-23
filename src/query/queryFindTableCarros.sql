@@ -6,4 +6,4 @@ vc.preco AS preco,
 vc.pais AS pais,
 vc.data_venda AS dataVenda
 
-FROM vendas_carros vc
+FROM carros vc

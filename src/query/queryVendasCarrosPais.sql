@@ -3,5 +3,5 @@ SELECT
 vc.pais,
 SUM(vc.preco) AS Preco
 
-FROM vendas_carros vc
+FROM carros vc
 GROUP BY vc.pais
