@@ -1,6 +1,6 @@
 dash
-guricorn
+gunicorn
 pandas
 sqlalchemy
 psycopg2-binary
-plotly.express
+plotly
