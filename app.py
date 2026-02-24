@@ -1,10 +1,12 @@
 
-from dash import Dash,  html, dash_table
+from dash import Dash,  html, dash_table,dcc
 from src.service.vendasService import VendasService
 from src.components.chart_component import ChartComponent
 from src.components.table_component import TableComponent
+from src.components.filter import Filter_pais
 import pandas as pd
 import dash_bootstrap_components as dbc
+from src.callbacks.vendas_callbacks import register_callbacks
 
 
 app = Dash(
@@ -28,18 +30,29 @@ app.layout = html.Div([
 
     html.H1("Dashborad de Vendas de Carros" , style={'textAlign': 'center'}),
 
-    ChartComponent.render(df_modelos),
+    Filter_pais.dropdown_pais(df_vendas),
+
+
+
 
     html.Div([
-        ChartComponent.carrosPais(df_pais),
-        ChartComponent.timeVendas(df_vendas)
-    ], style={'display':'Flex',
-              'gap': '20px'})
+        dcc.Graph(id="graf-modelos"),
+
+    ], style = {"padding": "0 20px"}),
+
+    html.Div([
+        
+        html.Div([dcc.Graph(id = "graf-carros-pais")], style={"width": "50%"}),
+        html.Div([dcc.Graph(id = "graf-time-vendas")], style={"width": "50%"}),
+
+    ], style={'display':'flex','gap': '20px', "padding": "0 20px"})
     
     
 
 ])
 
+register_callbacks(app, df_vendas)
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
 

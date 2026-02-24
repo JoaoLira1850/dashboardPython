@@ -1,4 +1,5 @@
 from ..repository.vendasRepository import VendasRepository
+import pandas as pd
 
 class VendasService:
 
@@ -13,14 +14,20 @@ class VendasService:
 
         return df
     
-    def listarVendasPais(self):
-        df = self.repository.findPaises()
+    def listarVendasPais(self) -> pd.DataFrame:
+        df = self.repository.findAll()
+
+        df = df.drop(columns=["datavenda","carro"], axis=1)
+
+        df = df.groupby("pais")["preco"].sum().reset_index()
+
 
         return df
     
     def listarModelos(self):
-        df = self.repository.findModelos()
-
+        df = self.repository.findAll()
+        df = df.drop(columns="datavenda", axis=1)
+        df = df.groupby(["pais","carro"])["preco"].sum().reset_index()
         return df
 
 

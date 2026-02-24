@@ -22,16 +22,7 @@ class ChartComponent:
             legend=dict(bgcolor='rgba(0,0,0,0)')
         )
 
-        return html.Div(
-            [dcc.Graph(figure=fig)],
-            style={
-                'padding': '20px',
-                'border': '1px solid rgba(255,255,255,0.08)',
-                'borderRadius': '25px',
-                'boxShadow': '0px 4px 15px rgba(0,0,0,0.5)',
-                'backgroundColor': ChartComponent.DARK_BG
-            }
-        )
+        return fig
 
 
     @staticmethod
@@ -47,7 +38,7 @@ class ChartComponent:
 
         fig.update_layout(
             height=380,
-            width=600,
+            autosize = True,
             template='plotly_dark',
             paper_bgcolor=ChartComponent.DARK_BG,
             plot_bgcolor=ChartComponent.DARK_BG,
@@ -58,21 +49,7 @@ class ChartComponent:
         fig.update_xaxes(gridcolor="rgba(255,255,255,0.08)")
         fig.update_yaxes(gridcolor="rgba(255,255,255,0.08)")
 
-        return html.Div(
-            [dcc.Graph(figure=fig)],
-            style={
-                'padding': '20px',
-                'display': 'flex',
-                'justifyContent': 'center',
-                'alignItems': 'center',
-                'border': '1px solid rgba(255,255,255,0.08)',
-                'borderRadius': '25px',
-                'boxShadow': '0px 4px 15px rgba(0,0,0,0.5)',  # corrigido
-                'backgroundColor': ChartComponent.DARK_BG,
-                'width': '50%',
-                'height': 410
-            }
-        )
+        return fig
 
 
     @staticmethod
@@ -85,7 +62,7 @@ class ChartComponent:
             paper_bgcolor=ChartComponent.DARK_BG,
             plot_bgcolor=ChartComponent.DARK_BG,
             height=380,
-            width=600,
+            autosize = True,
             font=dict(color='#EAEAEA')
         )
 
@@ -96,18 +73,4 @@ class ChartComponent:
             fillcolor="rgba(99,110,250,0.2)"
         )
 
-        return html.Div(
-            [dcc.Graph(figure=fig)],
-            style={
-                'padding': '20px',
-                'display': 'flex',
-                'justifyContent': 'center',
-                'alignItems': 'center',
-                'border': '1px solid rgba(255,255,255,0.08)',
-                'borderRadius': '25px',
-                'boxShadow': '0px 4px 15px rgba(0,0,0,0.5)',
-                'backgroundColor': ChartComponent.DARK_BG,
-                'width': '50%',
-                'height': 410
-            }
-        )
+        return fig

@@ -25,13 +25,3 @@ class VendasRepository:
     
 
     
-    def findPaises(self):
-        query: str = self._load_query("queryVendasCarrosPais")
-
-        return pd.read_sql(query, self.engine)
-    
-    def findModelos(self):
-
-        query: str = self._load_query("queryVendasModelos")
-
-        return pd.read_sql(query,self.engine)
