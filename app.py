@@ -30,7 +30,17 @@ app.layout = html.Div([
 
     html.H1("Dashborad de Vendas de Carros" , style={'textAlign': 'center'}),
 
-    Filter_pais.dropdown_pais(df_vendas),
+
+    html.Div(
+
+        Filter_pais.dropdown_pais(df_vendas),
+        style = {
+            "display":"flex",
+            "justifyContent":"flex-end",
+            "paddingRight":"20px"
+        }
+    ),
+    
 
 
 
@@ -38,16 +48,23 @@ app.layout = html.Div([
     html.Div([
         dcc.Graph(id="graf-modelos"),
 
-    ], style = {"padding": "0 20px"}),
+    ], style = {"padding": "20px 20px"}),
 
     html.Div([
+        html.Div(
+            [dcc.Graph(id="graf-carros-pais")],
+            style={"width": "50%", "minWidth": 0}
+        ),
+        html.Div(
+            [dcc.Graph(id="graf-time-vendas")],
+            style={"width": "50%", "minWidth": 0}
+        ),
+    ], style={
+        'display': 'flex',
+        'gap': '20px',
+        "padding": "20px"
+    })
         
-        html.Div([dcc.Graph(id = "graf-carros-pais")], style={"width": "50%"}),
-        html.Div([dcc.Graph(id = "graf-time-vendas")], style={"width": "50%"}),
-
-    ], style={'display':'flex','gap': '20px', "padding": "0 20px"})
-    
-    
 
 ])
 

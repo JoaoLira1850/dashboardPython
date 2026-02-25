@@ -1,0 +1,30 @@
+/* container geral */
+.meu-dropdown {
+  color: #000 !important;
+}
+
+/* campo fechado */
+.meu-dropdown .Select-control,
+.meu-dropdown .select__control {
+  background-color: #ffffff !important;
+  border: 1px solid #888 !important;
+}
+
+/* texto selecionado */
+.meu-dropdown .Select-value-label,
+.meu-dropdown .select__single-value {
+  color: #000000 !important;
+}
+
+/* placeholder */
+.meu-dropdown .Select-placeholder,
+.meu-dropdown .select__placeholder {
+  color: #444444 !important;
+}
+
+/* menu aberto */
+.meu-dropdown .Select-menu-outer,
+.meu-dropdown .select__menu {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}

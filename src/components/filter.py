@@ -15,13 +15,14 @@ class Filter_pais :
             html.Label("Filtrar por pais", style={"marginBottom": "6px", "display":"block"}),
             dcc.Dropdown(
                 id="filtro-pais",
+                className="meu-dropdown",
                 options=[{"label": "Todos", "value": "__ALL__"}] + [{"label": p , "value": p} for p in paises],
                 value="__ALL__",
-                clearable=False
+                clearable=False,
             )
         ],style={
-            "maxWidth":"420px",
-            "margin":"0 auto 18px auto",
+            "width": "320px",
+            "margin":"  0 0 18px 20px",
         })
 
 
