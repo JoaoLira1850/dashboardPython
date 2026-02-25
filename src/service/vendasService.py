@@ -17,7 +17,7 @@ class VendasService:
     def listarVendasPais(self) -> pd.DataFrame:
         df = self.repository.findAll()
 
-        df = df.drop(columns=["datavenda","carro"], axis=1)
+        df = df.drop(columns=["datavenda","carro"])
 
         df = df.groupby("pais")["preco"].sum().reset_index()
 
@@ -26,7 +26,7 @@ class VendasService:
     
     def listarModelos(self):
         df = self.repository.findAll()
-        df = df.drop(columns="datavenda", axis=1)
+        df = df.drop(columns="datavenda")
         df = df.groupby(["pais","carro"])["preco"].sum().reset_index()
         return df
 
